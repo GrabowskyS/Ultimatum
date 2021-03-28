@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Stage_Background.png" type="Texture" id=1]
+[ext_resource path="res://skeleton.png" type="Texture" id=2]
+[ext_resource path="res://Limbo_Boss.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Skeleton.gd" type="Script" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Stage_Trees.png" type="Texture" id=6]
+[ext_resource path="res://ForegroundTrees.gd" type="Script" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6.46372, 152.839 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 17.3228
+height = 30.8419
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Stage_Background" type="Sprite" parent="."]
+position = Vector2( 449.497, 151.821 )
+z_index = -4096
+texture = ExtResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 159.539, 238.921 )
+rotation = -0.011843
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 900
+limit_bottom = 300
+limit_smoothed = true
+smoothing_enabled = true
+
+[node name="BackgroundColliders" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundColliders"]
+position = Vector2( 6.40435, 164.934 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BackgroundColliders"]
+position = Vector2( 893.68, 150.606 )
+shape = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackgroundColliders"]
+position = Vector2( 0.561234, 0 )
+polygon = PoolVector2Array( -0.386307, 210.154, 37.4769, 204.363, 68.2129, 203.472, 90.0399, 209.263, 101.622, 206.145, 110.531, 209.263, 170.666, 205.699, 227.684, 205.699, 261.983, 211.49, 273.565, 211.936, 293.61, 204.809, 306.083, 208.818, 340.382, 204.809, 372.9, 204.363, 428.136, 212.381, 493.172, 206.59, 526.135, 204.363, 526.135, -0.0981331, 0.0591431, -0.989031 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BackgroundColliders"]
+polygon = PoolVector2Array( 0.0591431, 293.92, 59.7494, 287.238, 118.994, 293.475, 173.339, 285.902, 199.175, 292.138, 232.138, 287.238, 255.302, 291.247, 318.555, 285.902, 353.3, 294.811, 401.854, 285.457, 412.1, 289.911, 459.317, 287.684, 501.635, 280.557, 526.58, 279.666, 527.026, 302.384, -0.831757, 307.284 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="BackgroundColliders"]
+polygon = PoolVector2Array( 459.763, 210.176, 457.536, 220.421, 452.19, 223.094, 460.654, 222.648, 467.336, 219.53, 475.799, 223.539, 474.463, 219.085, 483.372, 220.866, 472.235, 207.503 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="BackgroundColliders"]
+polygon = PoolVector2Array( 319.446, 207.058, 315.437, 213.294, 309.201, 220.866, 322.564, 218.194, 336.819, 224.43, 334.592, 218.639, 342.164, 221.312, 335.037, 212.403, 335.037, 204.385 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="BackgroundColliders"]
+polygon = PoolVector2Array( 226.793, 204.385, 224.12, 211.512, 214.32, 219.976, 222.784, 219.53, 221.447, 225.321, 231.247, 219.085, 245.056, 223.985, 237.929, 215.967, 237.929, 204.83 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="BackgroundColliders"]
+polygon = PoolVector2Array( 12.9772, 207.503, 22.7771, 220.866, 8.96813, 218.194 )
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="BackgroundColliders"]
+polygon = PoolVector2Array( 523.748, 204.551, 558.75, 204.904, 569.003, 206.319, 567.943, 209.854, 558.397, 219.4, 570.417, 218.693, 567.943, 224.35, 583.852, 218.339, 597.995, 221.875, 587.388, 209.854, 603.651, 204.904, 716.081, 204.197, 716.435, 214.804, 705.121, 228.946, 719.263, 225.057, 738.709, 230.36, 735.173, 224.703, 748.255, 224.35, 736.941, 215.158, 732.345, 203.844, 786.439, 209.147, 796.692, 211.268, 785.732, 221.875, 795.631, 219.754, 794.217, 224.35, 804.47, 219.754, 818.612, 223.996, 810.48, 215.511, 809.42, 211.622, 824.269, 211.268, 838.765, 207.733, 879.423, 207.379, 887.555, 208.44, 887, -0.5, 525.5, -2 )
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="BackgroundColliders"]
+polygon = PoolVector2Array( 527.422, 279.462, 560.18, 281.667, 617.507, 292.376, 698.457, 287.022, 700.976, 291.116, 713.261, 293.006, 728.065, 284.817, 754.523, 286.392, 769.327, 289.856, 777.517, 293.636, 792.636, 293.321, 830.433, 284.817, 847.757, 290.171, 865.396, 297.416, 893.744, 300.566, 520.493, 301.511 )
+
+[node name="Skeleton" type="KinematicBody2D" parent="."]
+position = Vector2( 631, 242 )
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Skeleton"]
+position = Vector2( -4, -30 )
+scale = Vector2( -1, 1 )
+frames = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="Skeleton"]
+position = Vector2( 2.83167, -28.2245 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="Skeleton_Hurtbox" type="CollisionShape2D" parent="Skeleton/Area2D"]
+position = Vector2( -0.943848, -1.9407 )
+shape = SubResource( 3 )
+
+[node name="enemy" type="Node" parent="Skeleton"]
+
+[node name="BossMovementArea" type="Area2D" parent="."]
+position = Vector2( 1.85382, 6.94489 )
+scale = Vector2( 2.56, 2.4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BossMovementArea"]
+visible = false
+polygon = PoolVector2Array( 4.47305, 83.9109, 8.27103, 88.8715, 4.55056, 88.7061, 4.39554, 118.387, 23.928, 116.651, 46.0958, 119.214, 67.411, 116.072, 76.0921, 118.139, 89.8889, 116.899, 97.8724, 118.305, 123.683, 116.072, 136.937, 119.958, 156.005, 115.824, 160.035, 117.643, 178.948, 116.899, 196.232, 113.757, 219.098, 114.501, 241.188, 118.553, 272.192, 116.651, 273.122, 118.139, 277.773, 119.049, 283.509, 115.742, 293.12, 116.155, 298.623, 117.478, 303.119, 119.297, 309.242, 119.214, 323.426, 115.742, 337.223, 121.033, 345.594, 121.942, 345.749, 84.2416, 342.571, 83.7455, 326.914, 83.7455, 321.101, 85.3991, 315.598, 85.3991, 319.628, 90.6904, 304.824, 90.9385, 310.094, 85.2337, 285.989, 82.5054, 291.957, 90.7731, 288.392, 93.6668, 274.285, 92.6747, 275.448, 82.7534, 235.065, 82.5881, 233.282, 89.6156, 220.958, 90.9384, 216.773, 88.7062, 216.773, 83.0841, 187.706, 83.9109, 188.094, 88.9542, 185.148, 91.1865, 175.847, 90.1944, 167.864, 85.4818, 145.463, 82.5054, 132.674, 82.6707, 133.062, 89.2849, 130.582, 90.4424, 119.885, 89.2849, 118.18, 83.9936, 113.839, 82.1747, 106.398, 85.5644, 95.7796, 84.1589, 94.927, 90.029, 85.7809, 91.1865, 82.913, 88.7888, 81.8931, 82.7855, 64.4811, 83.0196, 43.1917, 84.2682, 39.0216, 83.1757, 34.8515, 84.4243, 26.2919, 81.849, 13.7084, 82.0831 )
+
+[node name="Limbo_Boss" parent="." instance=ExtResource( 3 )]
+position = Vector2( 527.045, 181.654 )
+
+[node name="ForegroundTrees" type="Sprite" parent="."]
+position = Vector2( 460.683, 151.503 )
+scale = Vector2( 1.01766, 1.02119 )
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
